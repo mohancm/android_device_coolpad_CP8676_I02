@@ -1,0 +1,8 @@
+[
+  {
+    "remote": "github",
+    "repository": "mohancm100/android_vendor_coolpad_CP8676_I02",
+    "target_path": "vendor/coolpad/CP8676_I02",
+    "branch": "master"
+  }
+] 
