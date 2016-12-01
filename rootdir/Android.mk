@@ -1,5 +1,5 @@
 LOCAL_PATH:= $(call my-dir)
-ifneq ($(filter A7010a48,$(TARGET_DEVICE)),)
+ifneq ($(filter CP8676_I02,$(TARGET_DEVICE)),)
 include $(CLEAR_VARS)
 
 # Device init files
