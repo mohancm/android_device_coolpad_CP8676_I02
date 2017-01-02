@@ -1229,6 +1229,7 @@ service akmd09911 /system/bin/akmd09911
     user system
     group system
     class main
+	
 service bmm050d /system/bin/bmm050d
     disabled
     user system
@@ -1483,6 +1484,7 @@ service program_binary /system/bin/program_binary_service
     user system
     group graphics
     oneshot
+
 
 service vtservice /system/bin/vtservice
     class main

@@ -606,4 +606,10 @@ service statusd /system/bin/statusd -f [/system/bin/flashlessd -l -m 0]
     user radio
     group radio cache inet misc system
 
+#ly_zhangtao add for mag sensor start
+service mxg2320d /system/bin/mxg2320d
+    user system
+    group system
+    class main
+#ly_zhangtao add for mag sensor end
 #INTERNAL_END
