@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015-2016 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@
 LOCAL_PATH := device/coolpad/CP8676_I02
 
 # Device board elements
-include $(LOCAL_PATH)/PlatformConfig.mk
 include $(LOCAL_PATH)/board/*.mk
 
 # Device vendor board
@@ -28,7 +27,7 @@ include $(LOCAL_PATH)/board/*.mk
 
 # Kernel
 TARGET_KMODULES := true
-COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
+BOARD_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
 # Disable memcpy opt (for audio libraries)
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
@@ -38,24 +37,11 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
-# Block based ota
-# see http://review.cyanogenmod.org/#/c/78849/1/core/Makefile
-BLOCK_BASED_OTA := false
-
 # Flags
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
+BOARD_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
-# init
-TARGET_PROVIDES_INIT_RC := true
-
-# system.prop
+# System.prop
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
-
-# Vold
-TARGET_USE_CUSTOM_LUN_FILE_PATH := sys/class/android_usb/android0/f_mass_storage/lun/file
-
-# Assert
-TARGET_OTA_ASSERT_DEVICE := CP8676_I02

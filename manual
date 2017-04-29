@@ -1,27 +1,26 @@
-#How to Build the CM13 From Source:
+How to make a patches after changes in LineageOS source code:
 
-##
- *Download vendor tree and device tree from my git".
+Cd working_dir (For example: cd lineage/frameworks/base)
+git status
+git add .
+git commit -m "name of patch"
+git show HEAD > 0001_.patch
 
- *Create directories coolpad/CP8676_I02 and place them in working_dir/device and in working_dir/vendor
+How to launch the LineageOS 14.1 build:
 
- *After copy files from downloaded device in working_dir/device , and from downloaded vendor in working_dir/vendor
-  
- *Open terminal and write:
-     *cd Working_dir
+Download vendor and device from my GitHub.
+Create dirs coolpad/CP8676_I02 and place them in working_dir/device and in working_dir/vendor
+After copy files from downloaded device in working_dir/device , and from downloaded vendor in working_dir/vendor
+Open terminal and write:
 
-	 After apply patches:
+cd working_dir
 
-	 sh device/coolpad/CP8676_I02/patches/install.sh
+export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
 
-	 
-#Write Below commands in Terminal(alt+ctr+T)
+./device/coolpad/CP8676_I02/patches/install.sh
 
-   * .build/envsetup.sh && Select lunch Combo
-   lunch CP8676_I02
+. build/envsetup.sh
 
-   And
+lunch lineage_CP8676_I02-userdebug && make bacon -j8
 
-   mka bacon
-
-   compiling get started ! Take some Rest! your build is ready on out directory.
+Wait for the build to finish, for me ~5hr

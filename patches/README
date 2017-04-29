@@ -1,6 +1,0 @@
-This is patch directory:
-
-Way to Apply the patches:
-cd WORKING_DIR
-sh device/coolpad/CP8676_I02/patches/apply-patches.sh
-sh device/coolpad/CP8676_I02/patches/revert-patches.sh

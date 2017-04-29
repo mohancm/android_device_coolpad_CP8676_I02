@@ -1,11 +1,18 @@
 # Kernel information
-BOARD_KERNEL_BASE := 0x40078000
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive androidboot.selinux=disabled
-BOARD_MKBOOTIMG_ARGS := --base 0x40078000 --pagesize 2048 --board 1465391499 --ramdisk_offset 0x03f88000 --second_offset 0x40f0000 --tags_offset 0x0df88000 --board mohan
+BOARD_NAME := 7.1.2.01.Q1.1500
+BOARD_KERNEL_BASE := 0x40078000
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x03f88000
+BOARD_TAGS_OFFSET := 0x0df88000
+BOARD_SECOND_OFFSET := 0x00e88000
+BOARD_MKBOOTIMG_ARGS := --board $(BOARD_NAME) --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET) --second_offset $(BOARD_SECOND_OFFSET)
+TARGET_IS_64_BIT := true
+MTK_K64_SUPPORT := yes
 
 # Kernel properties
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilts/kernel
-
-# Hack for building without kernel sources
-$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+TARGET_KERNEL_SOURCE := kernel/lenovo/A7010a48
+TARGET_KERNEL_CONFIG := CP8676_I02_defconfig
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+MTK_APPENDED_DTB_SUPPORT := yes
