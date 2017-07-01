@@ -37,7 +37,7 @@ qemu.hw.mainkeys=1
 debug.hwui.render_dirty_regions=false
 
 # LCD Density
-ro.sf.lcd_density=480
+ro.sf.lcd_density=320
 
 # RIL
 ro.telephony.sim.count=2
